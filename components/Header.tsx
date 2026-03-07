@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '/', label: 'Race' },
@@ -37,6 +38,8 @@ export default memo(function Header() {
           </nav>
         </div>
         <div className="hidden md:flex items-center gap-4 text-xs font-mono text-dim">
+          <ThemeToggle />
+          <span className="text-surface-light">|</span>
           <a
             href="https://x.com/Geekissimo"
             target="_blank"
@@ -56,7 +59,7 @@ export default memo(function Header() {
           </a>
         </div>
         {/* Mobile nav */}
-        <nav className="flex sm:hidden items-center gap-4">
+        <nav className="flex sm:hidden items-center gap-3">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -68,6 +71,7 @@ export default memo(function Header() {
               {link.label}
             </Link>
           ))}
+          <ThemeToggle />
         </nav>
       </div>
     </header>

@@ -35,7 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem('speed-arena-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}` }} />
+      </head>
       <body className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased`}>
         <Header />
         {children}
