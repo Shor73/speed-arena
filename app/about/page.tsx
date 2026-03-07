@@ -17,36 +17,68 @@ export default function AboutPage() {
         </p>
 
         <p>
-          The goal is simple: make the speed difference between AI inference providers
-          visually obvious. When you see{' '}
-          <span className="text-neon">Taalas HC1</span> flash its response instantly
-          while other models are still streaming token by token, the difference speaks
-          for itself.
+          Bring your own API keys to race any combination of 11 models from top providers.{' '}
+          <span className="text-neon">Taalas HC1</span> is always in the race as the
+          defending champion &mdash; no key needed.
         </p>
 
         <div className="border border-surface-light p-4 space-y-3">
-          <h2 className="text-arena-white font-bold text-base">Models</h2>
+          <h2 className="text-arena-white font-bold text-base">Models (11)</h2>
           <div className="space-y-2">
             <div>
               <span className="text-neon">Taalas HC1</span>{' '}
-              <span className="text-dim">— Llama 3.1-8B running on Taalas hardware</span>
+              <span className="text-dim">&mdash; Llama 3.1-8B (built-in, no key needed)</span>
             </div>
             <div>
-              <span className="text-arena-white">ChatGPT 5.3 Instant</span>{' '}
-              <span className="text-dim">— OpenAI</span>
+              <span className="text-arena-white">GPT-4o Mini</span>{' '}
+              <span className="text-dim">&mdash; OpenAI</span>
             </div>
             <div>
-              <span className="text-arena-purple">Claude Opus 4.6 Fast</span>{' '}
-              <span className="text-dim">— Anthropic</span>
+              <span className="text-arena-purple">Claude Opus 4.6</span>{' '}
+              <span className="text-dim">&mdash; Anthropic</span>
             </div>
             <div>
-              <span className="text-arena-blue">Gemini 3.1 Pro Fast</span>{' '}
-              <span className="text-dim">— Google</span>
+              <span className="text-arena-blue">Gemini Flash</span>{' '}
+              <span className="text-dim">&mdash; Google</span>
             </div>
             <div>
               <span className="text-arena-yellow">GLM-5</span>{' '}
-              <span className="text-dim">— Zhipu AI</span>
+              <span className="text-dim">&mdash; Zhipu AI</span>
             </div>
+            <div>
+              <span className="text-arena-red">Llama 4 Scout</span>{' '}
+              <span className="text-dim">&mdash; Cerebras (2,600 tok/s)</span>
+            </div>
+            <div>
+              <span className="text-arena-red">DeepSeek V3.1</span>{' '}
+              <span className="text-dim">&mdash; Fireworks AI (355 tok/s)</span>
+            </div>
+            <div>
+              <span className="text-arena-purple">Mistral Small</span>{' '}
+              <span className="text-dim">&mdash; Mistral AI</span>
+            </div>
+            <div>
+              <span className="text-arena-white">Grok 4.1 Fast</span>{' '}
+              <span className="text-dim">&mdash; xAI</span>
+            </div>
+            <div>
+              <span className="text-arena-yellow">MiniMax-M2.5</span>{' '}
+              <span className="text-dim">&mdash; MiniMax</span>
+            </div>
+            <div>
+              <span className="text-arena-blue">Kimi K2.5</span>{' '}
+              <span className="text-dim">&mdash; Moonshot AI</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="border border-surface-light p-4 space-y-3">
+          <h2 className="text-arena-white font-bold text-base">How it works</h2>
+          <div className="space-y-2 text-dim-light">
+            <p>1. Add your API keys for the providers you want to race (keys stored in your browser only)</p>
+            <p>2. Select which challengers to race against Taalas HC1</p>
+            <p>3. Type a prompt and hit RACE</p>
+            <p>4. Watch all models stream their responses simultaneously with live timers</p>
           </div>
         </div>
 
@@ -62,7 +94,7 @@ export default function AboutPage() {
               >
                 taalas.com
               </a>{' '}
-              <span className="text-dim">— Taalas AI inference hardware</span>
+              <span className="text-dim">&mdash; Taalas AI inference hardware</span>
             </div>
             <div>
               <a
@@ -73,14 +105,15 @@ export default function AboutPage() {
               >
                 @Geekissimo
               </a>{' '}
-              <span className="text-dim">— Creator</span>
+              <span className="text-dim">&mdash; Creator</span>
             </div>
           </div>
         </div>
 
         <p className="text-dim text-xs pt-4 border-t border-surface-light">
-          Speed Arena is a private benchmark tool. All API calls use personal API keys.
-          Results may vary based on network conditions, server load, and prompt complexity.
+          Speed Arena is BYOK (Bring Your Own Key). API keys are stored locally in your browser
+          and never logged on the server. Results may vary based on network conditions, server
+          load, and prompt complexity.
         </p>
       </div>
     </main>

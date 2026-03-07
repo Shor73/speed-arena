@@ -12,12 +12,18 @@ interface RaceColumnProps {
   speedMultiplier: number | null;
 }
 
-const providerColors: Record<ModelId, string> = {
+const providerColors: Record<string, string> = {
   taalas: 'text-neon',
   openai: 'text-arena-white',
   anthropic: 'text-arena-purple',
   google: 'text-arena-blue',
   zhipu: 'text-arena-yellow',
+  cerebras: 'text-arena-red',
+  fireworks: 'text-arena-red',
+  mistral: 'text-arena-purple',
+  xai: 'text-arena-white',
+  minimax: 'text-arena-yellow',
+  kimi: 'text-arena-blue',
 };
 
 // Pre-compute model lookup for O(1) access instead of .find() every render

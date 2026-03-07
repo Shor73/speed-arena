@@ -5,10 +5,10 @@ const DATA_PREFIX = 'data: ';
 const DATA_PREFIX_LEN = DATA_PREFIX.length;
 const DOUBLE_NL = '\n\n';
 
-export async function* streamGoogle(prompt: string): AsyncGenerator<StreamEvent> {
-  const apiKey = process.env.GOOGLE_AI_API_KEY;
+export async function* streamGoogle(prompt: string, userApiKey?: string): AsyncGenerator<StreamEvent> {
+  const apiKey = userApiKey || process.env.GOOGLE_AI_API_KEY;
   if (!apiKey) {
-    yield { type: 'error', message: 'GOOGLE_AI_API_KEY not configured' };
+    yield { type: 'error', message: 'Google API key not configured' };
     return;
   }
 
