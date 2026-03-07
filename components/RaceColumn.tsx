@@ -60,7 +60,7 @@ function RaceColumn({ modelId, state, isWinner, speedMultiplier }: RaceColumnPro
             <p className="text-xs text-dim font-mono">{model.subtitle}</p>
           </div>
           {isWinner && (
-            <div className="bg-neon text-black px-2 py-1 font-mono text-xs font-bold animate-slide-up">
+            <div className="bg-neon text-arena-bg px-2 py-1 font-mono text-xs font-bold animate-slide-up">
               WINNER
               {speedMultiplier && speedMultiplier > 1 && (
                 <span className="ml-1">{speedMultiplier.toFixed(0)}x</span>

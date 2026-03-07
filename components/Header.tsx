@@ -39,7 +39,7 @@ export default memo(function Header() {
         </div>
         <div className="hidden md:flex items-center gap-4 text-xs font-mono text-dim">
           <ThemeToggle />
-          <span className="text-surface-light">|</span>
+          <span className="text-dim">|</span>
           <a
             href="https://x.com/Geekissimo"
             target="_blank"
@@ -48,7 +48,7 @@ export default memo(function Header() {
           >
             @Geekissimo
           </a>
-          <span className="text-surface-light">|</span>
+          <span className="text-dim">|</span>
           <a
             href="https://taalas.com"
             target="_blank"

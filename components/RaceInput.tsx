@@ -49,7 +49,7 @@ export default memo(function RaceInput({ onSubmit, disabled, compact }: RaceInpu
           disabled={disabled || !prompt.trim()}
           className={`
             font-mono font-bold uppercase tracking-wider
-            bg-neon text-black
+            bg-neon text-arena-bg
             hover:bg-neon-dim
             disabled:opacity-30 disabled:cursor-not-allowed
             transition-all
