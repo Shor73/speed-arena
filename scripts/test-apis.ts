@@ -75,7 +75,7 @@ async function testOpenAI() {
         'Authorization': `Bearer ${key}`,
       },
       body: JSON.stringify({
-        model: 'o3-mini',
+        model: 'gpt-4.1-nano',
         messages: [{ role: 'user', content: PROMPT }],
         stream: false,
       }),

@@ -45,7 +45,7 @@ No database. No auth. No bloat. Just raw SSE streaming piped straight from 11 pr
 | # | Model | Provider | Key | Format |
 |---|-------|----------|-----|--------|
 | 1 | **Taalas HC1** (Llama 3.1-8B) | [Taalas](https://taalas.com) | Built-in | OpenAI |
-| 2 | **o3-mini** | OpenAI | BYOK | OpenAI |
+| 2 | **GPT-4.1 nano** | OpenAI | BYOK | OpenAI |
 | 3 | **Claude 4.5 Haiku** | Anthropic | BYOK | Custom |
 | 4 | **Gemini Flash** | Google | BYOK | Custom |
 | 5 | **GLM-4.5 Flash** | Zhipu AI | BYOK | OpenAI |

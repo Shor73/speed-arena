@@ -30,7 +30,7 @@ export default function AboutPage() {
               <span className="text-dim">&mdash; Llama 3.1-8B (built-in, no key needed)</span>
             </div>
             <div>
-              <span className="text-arena-white">o3-mini</span>{' '}
+              <span className="text-arena-white">GPT-4.1 nano</span>{' '}
               <span className="text-dim">&mdash; OpenAI (164 tok/s)</span>
             </div>
             <div>

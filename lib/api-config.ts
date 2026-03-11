@@ -15,7 +15,7 @@ export const API_CONFIG: Record<string, ProviderConfig> = {
   openai: {
     baseUrl: 'https://api.openai.com',
     path: '/v1/chat/completions',
-    model: 'o3-mini',
+    model: 'gpt-4.1-nano',
     apiFormat: 'openai',
   },
   anthropic: {
