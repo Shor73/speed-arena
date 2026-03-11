@@ -46,13 +46,13 @@ function RaceColumn({ modelId, state, isWinner, speedMultiplier }: RaceColumnPro
     [isWinner, isTaalas, isDone]
   );
 
-  // Auto-scroll response area to bottom while streaming
+  // Auto-scroll response area to bottom while streaming and on completion
   const responseRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (isStreaming && responseRef.current) {
+    if ((isStreaming || isDone) && responseRef.current) {
       responseRef.current.scrollTop = responseRef.current.scrollHeight;
     }
-  }, [state.text, isStreaming]);
+  }, [state.text, isStreaming, isDone]);
 
   return (
     <div className={containerClass}>
