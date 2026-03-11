@@ -15,13 +15,13 @@ export const API_CONFIG: Record<string, ProviderConfig> = {
   openai: {
     baseUrl: 'https://api.openai.com',
     path: '/v1/chat/completions',
-    model: 'gpt-4o-mini',
+    model: 'o3-mini',
     apiFormat: 'openai',
   },
   anthropic: {
     baseUrl: 'https://api.anthropic.com',
     path: '/v1/messages',
-    model: 'claude-opus-4-6',
+    model: 'claude-haiku-4-5-20251001',
     apiFormat: 'anthropic',
   },
   google: {

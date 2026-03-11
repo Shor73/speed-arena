@@ -30,12 +30,12 @@ export default function AboutPage() {
               <span className="text-dim">&mdash; Llama 3.1-8B (built-in, no key needed)</span>
             </div>
             <div>
-              <span className="text-arena-white">GPT-4o Mini</span>{' '}
-              <span className="text-dim">&mdash; OpenAI</span>
+              <span className="text-arena-white">o3-mini</span>{' '}
+              <span className="text-dim">&mdash; OpenAI (164 tok/s)</span>
             </div>
             <div>
-              <span className="text-arena-purple">Claude Opus 4.6</span>{' '}
-              <span className="text-dim">&mdash; Anthropic</span>
+              <span className="text-arena-purple">Claude 4.5 Haiku</span>{' '}
+              <span className="text-dim">&mdash; Anthropic (96 tok/s)</span>
             </div>
             <div>
               <span className="text-arena-blue">Gemini Flash</span>{' '}

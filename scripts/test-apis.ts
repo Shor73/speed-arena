@@ -75,7 +75,7 @@ async function testOpenAI() {
         'Authorization': `Bearer ${key}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model: 'o3-mini',
         messages: [{ role: 'user', content: PROMPT }],
         stream: false,
       }),
@@ -114,7 +114,7 @@ async function testAnthropic() {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-opus-4-6',
+        model: 'claude-haiku-4-5-20251001',
         messages: [{ role: 'user', content: PROMPT }],
         max_tokens: 256,
       }),
