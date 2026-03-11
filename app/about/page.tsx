@@ -42,7 +42,7 @@ export default function AboutPage() {
               <span className="text-dim">&mdash; Google</span>
             </div>
             <div>
-              <span className="text-arena-yellow">GLM-4 Flash</span>{' '}
+              <span className="text-arena-yellow">GLM-4.5 Flash</span>{' '}
               <span className="text-dim">&mdash; Zhipu AI (72 tok/s)</span>
             </div>
             <div>
