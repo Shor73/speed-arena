@@ -33,7 +33,7 @@ export const API_CONFIG: Record<string, ProviderConfig> = {
   zhipu: {
     baseUrl: 'https://api.z.ai',
     path: '/api/coding/paas/v4/chat/completions',
-    model: 'glm-4.7-flashx',
+    model: 'glm-4.7-flash',
     apiFormat: 'openai',
   },
   cerebras: {

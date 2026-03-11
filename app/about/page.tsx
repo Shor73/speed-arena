@@ -42,8 +42,8 @@ export default function AboutPage() {
               <span className="text-dim">&mdash; Google</span>
             </div>
             <div>
-              <span className="text-arena-yellow">GLM-4.7 FlashX</span>{' '}
-              <span className="text-dim">&mdash; Zhipu AI (100+ tok/s)</span>
+              <span className="text-arena-yellow">GLM-4.7 Flash</span>{' '}
+              <span className="text-dim">&mdash; Zhipu AI</span>
             </div>
             <div>
               <span className="text-arena-red">Llama 4 Scout</span>{' '}

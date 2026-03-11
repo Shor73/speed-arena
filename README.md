@@ -48,7 +48,7 @@ No database. No auth. No bloat. Just raw SSE streaming piped straight from 11 pr
 | 2 | **GPT-4.1 nano** | OpenAI | BYOK | OpenAI |
 | 3 | **Claude 4.5 Haiku** | Anthropic | BYOK | Custom |
 | 4 | **Gemini Flash** | Google | BYOK | Custom |
-| 5 | **GLM-4.7 FlashX** | Zhipu AI (100+ tok/s) | BYOK | OpenAI |
+| 5 | **GLM-4.7 Flash** | Zhipu AI | BYOK | OpenAI |
 | 6 | **Llama 4 Scout** | Cerebras (2,600 tok/s) | BYOK | OpenAI |
 | 7 | **DeepSeek V3.1** | Fireworks AI (355 tok/s) | BYOK | OpenAI |
 | 8 | **Mistral Small** | Mistral AI | BYOK | OpenAI |
