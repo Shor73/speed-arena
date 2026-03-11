@@ -65,7 +65,7 @@ export async function* streamZhipu(prompt: string): AsyncGenerator<StreamEvent> 
       try {
         const parsed = JSON.parse(data);
         const delta = parsed.choices?.[0]?.delta;
-        // GLM-5 sends reasoning_content (thinking) then content (answer)
+        // GLM models may send reasoning_content (thinking) then content (answer)
         const content = delta?.content || delta?.reasoning_content;
         if (content) {
           outputTokens++;
