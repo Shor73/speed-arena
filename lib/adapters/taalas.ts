@@ -23,6 +23,7 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
       model,
       prompt: [{ role: 'user', content: prompt }],
       stream: true,
+      temperature: 0,
     }),
   });
 
@@ -65,7 +66,7 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
 
           // Done signal: includes total_tokens and metrics
           if (parsed.done === true) {
-            yield { type: 'done', outputTokens: parsed.total_tokens || outputTokens };
+            yield { type: 'done', outputTokens: parsed.decode_tokens || parsed.total_tokens || outputTokens };
             return;
           }
 
@@ -84,7 +85,7 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
     // Non-streaming fallback
     const data = await response.json();
     const content = data.response || '';
-    const outputTokens = data.total_tokens || Math.ceil(content.length / 4);
+    const outputTokens = data.decode_tokens || data.total_tokens || Math.ceil(content.length / 4);
     if (content) {
       yield { type: 'text', content };
     }
