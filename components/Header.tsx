@@ -19,7 +19,7 @@ export default memo(function Header() {
       <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="font-mono text-lg font-bold tracking-wider text-neon">
-            SPEED ARENA<span className="animate-blink">_</span>
+            SPEED ARENA<sup className="ml-1 text-[10px] text-dim-light font-normal align-super">v2</sup><span className="animate-blink">_</span>
           </Link>
           <nav className="hidden sm:flex items-center gap-6">
             {navLinks.map((link) => (
