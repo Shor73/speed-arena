@@ -2,15 +2,15 @@ export interface ProviderConfig {
   baseUrl: string;
   path: string;
   model: string;
-  apiFormat: 'openai' | 'anthropic' | 'google';
+  apiFormat: 'openai' | 'anthropic' | 'google' | 'taalas-native';
 }
 
 export const API_CONFIG: Record<string, ProviderConfig> = {
   taalas: {
     baseUrl: 'https://api.taalas.com',
-    path: '/v1/chat/completions',
-    model: 'llama-3.1-8b',
-    apiFormat: 'openai',
+    path: '/generate',
+    model: 'llama3.1-8B',
+    apiFormat: 'taalas-native',
   },
   openai: {
     baseUrl: 'https://api.openai.com',

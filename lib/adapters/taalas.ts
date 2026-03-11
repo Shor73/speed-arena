@@ -3,7 +3,6 @@ import type { StreamEvent } from '../types';
 
 const DATA_PREFIX = 'data: ';
 const DATA_PREFIX_LEN = DATA_PREFIX.length;
-const DONE_SIGNAL = '[DONE]';
 
 export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent> {
   const apiKey = process.env.TAALAS_API_KEY;
@@ -22,7 +21,7 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
     },
     body: JSON.stringify({
       model,
-      messages: [{ role: 'user', content: prompt }],
+      prompt: [{ role: 'user', content: prompt }],
       stream: true,
     }),
   });
@@ -61,19 +60,19 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
         }
 
         const data = line.substring(dataStart);
-        if (data === DONE_SIGNAL) {
-          yield { type: 'done', outputTokens };
-          return;
-        }
         try {
           const parsed = JSON.parse(data);
-          const content = parsed.choices?.[0]?.delta?.content;
-          if (content) {
-            outputTokens++;
-            yield { type: 'text', content };
+
+          // Done signal: includes total_tokens and metrics
+          if (parsed.done === true) {
+            yield { type: 'done', outputTokens: parsed.total_tokens || outputTokens };
+            return;
           }
-          if (parsed.usage?.completion_tokens) {
-            outputTokens = parsed.usage.completion_tokens;
+
+          // Content chunk: skip empty heartbeat responses
+          if (parsed.response) {
+            outputTokens++;
+            yield { type: 'text', content: parsed.response };
           }
         } catch { /* skip unparseable lines */ }
         nlIdx = buffer.indexOf('\n', pos);
@@ -82,10 +81,10 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
     }
     yield { type: 'done', outputTokens };
   } else {
-    // Non-streaming response (Taalas may return all at once)
+    // Non-streaming fallback
     const data = await response.json();
-    const content = data.choices?.[0]?.message?.content || data.choices?.[0]?.text || '';
-    const outputTokens = data.usage?.completion_tokens || Math.ceil(content.length / 4);
+    const content = data.response || '';
+    const outputTokens = data.total_tokens || Math.ceil(content.length / 4);
     if (content) {
       yield { type: 'text', content };
     }
@@ -93,7 +92,7 @@ export async function* streamTaalas(prompt: string): AsyncGenerator<StreamEvent>
   }
 }
 
-/** Find the start index of the JSON payload after "data: ", skipping leading whitespace. Returns -1 if not a data line. */
+/** Find the start index of the JSON payload after "data: ", skipping leading whitespace. */
 function findDataStart(line: string): number {
   let i = 0;
   while (i < line.length && (line.charCodeAt(i) === 32 || line.charCodeAt(i) === 9)) i++;

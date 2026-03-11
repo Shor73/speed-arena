@@ -177,8 +177,17 @@ export default function HomePage() {
   // Token batching: accumulate token chunks and flush once per animation frame
   const pendingTokensRef = useRef<Record<string, { content: string; time: number }>>({});
   const flushRafRef = useRef<number>(0);
+  const firstTokenSentRef = useRef<Set<string>>(new Set());
 
   const queueToken = useCallback((modelId: ModelId, content: string, time: number) => {
+    // First token for this model: dispatch immediately for instant TTFT display
+    if (!firstTokenSentRef.current.has(modelId)) {
+      firstTokenSentRef.current.add(modelId);
+      dispatch({ type: 'model_token', modelId, content, time });
+      return;
+    }
+
+    // Subsequent tokens: batch via RAF
     const pending = pendingTokensRef.current;
     if (pending[modelId]) {
       pending[modelId].content += content;
@@ -244,6 +253,7 @@ export default function HomePage() {
     async (prompt: string) => {
       const models = selectedModelsRef.current;
       dispatch({ type: 'start_race', prompt });
+      firstTokenSentRef.current.clear();
 
       const raceModel = async (modelId: ModelId) => {
         dispatch({ type: 'model_start', modelId, time: performance.now() });

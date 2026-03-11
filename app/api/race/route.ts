@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const preferredRegion = ['fra1', 'cdg1', 'arn1'];
+
 import { streamTaalas } from '@/lib/adapters/taalas';
 import { streamAnthropic } from '@/lib/adapters/anthropic';
 import { streamGoogle } from '@/lib/adapters/google';
@@ -7,6 +10,9 @@ import type { StreamEvent } from '@/lib/types';
 
 // Reuse a single encoder across all requests (TextEncoder is stateless & thread-safe)
 const encoder = new TextEncoder();
+
+// Warm TCP+TLS connection to Taalas on edge isolate startup
+const _warmup = fetch('https://api.taalas.com/health').catch(() => {});
 
 export async function POST(request: Request) {
   const { model, prompt, apiKey } = await request.json() as {
@@ -73,6 +79,7 @@ export async function POST(request: Request) {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache, no-transform',
       'Connection': 'keep-alive',
+      'Content-Encoding': 'identity',
       'X-Accel-Buffering': 'no',
       'X-Content-Type-Options': 'nosniff',
     },
