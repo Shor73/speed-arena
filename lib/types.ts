@@ -23,7 +23,7 @@ export interface ModelInfo {
   subtitle: string;
   provider: string;
   keySource: 'server' | 'byok';
-  apiFormat: 'openai' | 'anthropic' | 'google' | 'taalas-native';
+  apiFormat: 'openai' | 'anthropic' | 'google';
   docsUrl?: string;
 }
 
@@ -42,7 +42,7 @@ export interface RaceResult {
 }
 
 export const MODELS: ModelInfo[] = [
-  { id: 'taalas', displayName: 'Taalas HC1', subtitle: 'Llama 3.1-8B', provider: 'Taalas', keySource: 'server', apiFormat: 'taalas-native' },
+  { id: 'taalas', displayName: 'Taalas HC1', subtitle: 'Llama 3.1-8B', provider: 'Taalas', keySource: 'server', apiFormat: 'openai' },
   { id: 'openai', displayName: 'GPT-4.1 nano', subtitle: 'OpenAI', provider: 'OpenAI', keySource: 'byok', apiFormat: 'openai', docsUrl: 'https://platform.openai.com/api-keys' },
   { id: 'anthropic', displayName: 'Claude 4.5 Haiku', subtitle: 'Anthropic', provider: 'Anthropic', keySource: 'byok', apiFormat: 'anthropic', docsUrl: 'https://console.anthropic.com/settings/keys' },
   { id: 'google', displayName: 'Gemini Flash', subtitle: 'Google', provider: 'Google', keySource: 'byok', apiFormat: 'google', docsUrl: 'https://aistudio.google.com/app/apikey' },
